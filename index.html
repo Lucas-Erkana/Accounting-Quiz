@@ -53,18 +53,21 @@
   </style>
 </head>
 <body>
-  <div id="quiz-box">
-    <div id="question" class="question">Click "Start Quiz" to begin.</div>
-    <div id="options"></div>
-    <div id="timer"></div>
-    <div>
-        <button class="start" onclick="startQuiz()">Start Quiz</button>
-        <button class="next" onclick="nextQuestion()">Next Question</button>
-        <button class="pause" onclick="togglePause()">Pause</button>
-        <button class="jump" onclick="jumpToRound2()">Jump to Round 2</button>
-        <button class="jump" onclick="jumpToRound1()">Back to Round 1</button>
-    </div>
-  </div>
+    <div id="quiz-box">
+        <div id="quiz-content">
+          <div id="question" class="question">Click "Start Quiz" to begin.</div>
+          <div id="options"></div>
+          <div id="timer"></div>
+        </div>
+        <div>
+          <button class="start" onclick="startQuiz()">Start Quiz</button>
+          <button class="next" onclick="nextQuestion()">Next Question</button>
+          <button class="pause" onclick="togglePause()">Pause</button>
+          <button class="jump" onclick="jumpToRound2()">Jump to Round 2</button>
+          <button class="jump" onclick="jumpToRound1()">Back to Round 1</button>
+        </div>
+      </div>
+      
 
   <script>
 
@@ -728,9 +731,12 @@ function jumpToRound1() {
     }
 
     function togglePause() {
-      paused = !paused;
-      document.querySelector(".pause").innerText = paused ? "Resume" : "Pause";
-    }
+  paused = !paused;
+  document.querySelector(".pause").innerText = paused ? "Resume" : "Pause";
+  const quizContent = document.getElementById("quiz-content");
+  quizContent.style.display = paused ? "none" : "block";
+}
+
   </script>
 </body>
 </html>
